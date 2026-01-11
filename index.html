@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adstiver - Performance Digital Marketing Agency</title>
+    <meta name="description" content="Adstiver - Your trusted partner in performance marketing and paid advertising. We drive growth through data-driven digital marketing strategies.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            padding: 150px 5% 100px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.3), transparent);
+            bottom: -200px;
+            left: -200px;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 2rem;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .process-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            min-width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 5%;
+            background: var(--dark);
+            color: white;
+        }
+
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background: var(--dark-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .portfolio-content {
+            padding: 2rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .result-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 5%;
+            background: var(--light);
+        }
+
+        .testimonial-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 5% 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--dark-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--dark-light);
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Adstiver</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Drive Growth with <span class="gradient-text">Performance Marketing</span></h1>
+            <p>Data-driven paid advertising strategies that deliver measurable results and maximize your ROI</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-primary">Start Your Campaign</a>
+                <a href="#services" class="btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">300+</div>
+                <p>Successful Campaigns</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5x</div>
+                <p>Average ROAS</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50M+</div>
+                <p>Ad Spend Managed</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <p>Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Meta Ads (Facebook & Instagram)</h3>
+                <p>Targeted campaigns that reach your ideal customers on the world's largest social platforms. From awareness to conversion, we optimize every step.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Google Ads (Search & Display)</h3>
+                <p>Capture high-intent customers actively searching for your products. Data-driven bidding strategies that maximize conversions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>TikTok Ads</h3>
+                <p>Reach younger audiences with creative, engaging video campaigns. We know what works on TikTok and drive viral growth.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Performance Analytics</h3>
+                <p>Comprehensive tracking and reporting. Understand what's working, optimize what's not, and scale winning campaigns.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Creative Production</h3>
+                <p>High-converting ad creatives designed specifically for paid campaigns. A/B tested for maximum performance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Landing Page Optimization</h3>
+                <p>Convert clicks into customers with high-performing landing pages. CRO strategies that boost your conversion rates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <h2 class="section-title">Our Process</h2>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Discovery & Strategy</h3>
+                    <p>We dive deep into your business, audience, and goals. Then craft a custom strategy aligned with your objectives.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Campaign Setup</h3>
+                    <p>Strategic account structure, pixel implementation, conversion tracking, and audience building for optimal performance.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Launch & Test</h3>
+                    <p>Launch campaigns with multiple ad variations. Rigorous A/B testing to identify winning combinations quickly.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Optimize & Scale</h3>
+                    <p>Continuous optimization based on real-time data. Scale winning campaigns while maintaining efficiency.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Report & Refine</h3>
+                    <p>Transparent reporting with actionable insights. Monthly strategy sessions to align and plan next steps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title" style="color: white;">Case Studies</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="portfolio-image">🛍️</div>
+                <div class="portfolio-content">
+                    <h3>E-Commerce Fashion Brand</h3>
+                    <p>Scaled monthly revenue from $50K to $250K in 6 months through optimized Meta and Google Shopping campaigns.</p>
+                    <span class="result-badge">+400% Revenue Growth</span>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">💼</div>
+                <div class="portfolio-content">
+                    <h3>B2B SaaS Company</h3>
+                    <p>Reduced cost per lead by 60% while doubling lead volume through strategic Google Search and LinkedIn campaigns.</p>
+                    <span class="result-badge">-60% Cost Per Lead</span>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">🏠</div>
+                <div class="portfolio-content">
+                    <h3>Real Estate Developer</h3>
+                    <p>Generated 500+ qualified leads in 90 days with 8.5x ROAS using geo-targeted Meta campaigns.</p>
+                    <span class="result-badge">8.5x ROAS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Adstiver transformed our digital marketing. Within 3 months, our ROAS improved from 2x to 6x. Their team is incredibly responsive and data-driven."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SB</div>
+                    <div class="author-info">
+                        <h4>Sarah Budiman</h4>
+                        <p>CEO, Fashion Startup</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Professional, transparent, and results-focused. They don't just run ads—they understand our business and help us grow strategically."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RP</div>
+                    <div class="author-info">
+                        <h4>Rizki Pratama</h4>
+                        <p>Marketing Director, Tech Co</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Best decision we made was partnering with Adstiver. Our lead quality improved dramatically and cost per acquisition dropped by 50%."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DA</div>
+                    <div class="author-info">
+                        <h4>Dina Anggraeni</h4>
+                        <p>Founder, Education Platform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <h2>Ready to Scale Your Business?</h2>
+        <p>Let's build a performance marketing strategy that drives real results for your business</p>
+        <div class="cta-buttons">
+            <a href="mailto:hello@adstiver.my.id" class="btn-primary">Get Free Consultation</a>
+            <a href="https://wa.me/6281234567890" class="btn-secondary">WhatsApp Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Adstiver</h3>
+                <p>Performance-driven digital marketing agency specializing in paid advertising and growth strategies.</p>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">🐦</a>
+                    <a href="#">💼</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="#services">Meta Ads</a>
+                <a href="#services">Google Ads</a>
+                <a href="#services">TikTok Ads</a>
+                <a href="#services">Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#process">Our Process</a>
+                <a href="#portfolio">Case Studies</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📧 hello@adstiver.my.id</p>
+                <p>📱 +62 812-3456-7890</p>
+                <p>📍 Bandung, Indonesia</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Adstiver. All rights reserved. Built with passion for performance.</p>
+        </div>
+    </footer>
+</body>
+</html>
